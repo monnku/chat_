@@ -22,10 +22,10 @@ function addchat (usernamevalue, messagevalue) {
     chatscroll.scrollTo(0, chatscroll.scrollHeight);
 }
 function connect(){
-    ws = new WebSocket("wss://cloud.achex.ca/Pascha");
+    ws = new WebSocket("wss://cloud.achex.ca/Moncha");
     ws.addEventListener('open',function(e) {
         console.log('open');
-        ws.send(JSON.stringify({'auth': 'Pascha', 'password': 'pass'}));
+        ws.send(JSON.stringify({'auth': 'Moncha', 'password': 'pass'}));
     });
     ws.addEventListener('message',function(e) {
         const obj = JSON.parse(e.data);
@@ -48,7 +48,7 @@ function connect(){
 function send(){
     if(text.value !== '') {
         if(text.value.indexOf('💩') === -1 && text.value.indexOf('うんち') === -1 && text.value.indexOf('うんこ') === -1) {
-            ws.send(JSON.stringify({'to': 'Pascha', 'message': text.value, 'username': username, 'id': id}));
+            ws.send(JSON.stringify({'to': 'Moncha', 'message': text.value, 'username': username, 'id': id}));
             addchat(username, text.value);
         } else {
             alert('使用できない単語が含まれています。ちゃんとコメントしろや');
